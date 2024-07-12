@@ -1,0 +1,74 @@
+.small-star {
+    font-size: 1rem; /* Adjust the size as needed */
+  }
+  footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .py-5 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
+
+
+
+::-webkit-scrollbar{
+  width:15px;
+}
+::-webkit-scrollbar-track{
+  background: #d1e5ff;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#642bff,#ff22e6);
+  border-radius: 10px;
+}
+
+
+
+.display{
+  display: flex;
+  gap: 2.8rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.margin{
+  margin-top: 8%;
+}
+li{
+  list-style: none;
+}
+ .margin1{
+  margin-top: 20%;
+  align-items: center;
+ }
+
+ .all{
+  margin-top: 10%;
+  margin-left: 0%;
+  margin-right:0%;
+ }
