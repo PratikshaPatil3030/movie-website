@@ -5,13 +5,13 @@ import { faCalendarDay, faMedal, faRankingStar, faStar } from '@fortawesome/free
 async function fetchMovie(id) {
   
   const apiUrl = 'https://imdb-top-100-movies.p.rapidapi.com/';
-const options = {
-  method: 'GET',
-  headers: {
-    'x-rapidapi-key': 'c65abdd51emsh6972fb478b714a4p19a885jsnaaaccafd6916',
-    'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
-  }   
-};
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': '88324f36f5msh3fae116b24e1378p1f622bjsne2f70e5b5a7c',
+      'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+    }
+  };
 
   const res = await fetch(apiUrl, options);
   if (!res.ok) {

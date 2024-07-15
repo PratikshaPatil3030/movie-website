@@ -1,16 +1,24 @@
 "use client";
-import React, { useEffect } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useSearch } from "../context/SearchContext";
 import Image from "next/image";
 
+export default function Nav() {
+  const [input, setInput] = useState('');
+  const router = useRouter();
+  const { setSearchTerm } = useSearch();
 
-export default function NavBar() {
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchTerm(input);
+    router.push(`/`);
+    router.push(`/movies`);
+  };
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top shadow p-3 mb-5 rounded" style={{backgroundColor:'#e3f2fd'}}>
-  <div className="container-fluid">
+      <div className="container-fluid">
   <a className="navbar-brand" href="/"><Image src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbLaVdwycz-_tNhLi0mG2duPLqeJI-b7z8pA&s"} alt={"logo"} width={60} height={50} /> Movies</a>
   
     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -33,14 +41,21 @@ export default function NavBar() {
             <a className="nav-link" href="/About">AboutUs</a>
           </li>
         </ul>
+       
       </div>
     </div>
   </div>
-</nav>
-  )
+      <form onSubmit={handleSearch} className="d-flex" role="search">
+        <input
+          type="search"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Search for a movie..."
+          className="form-control me-2"
+          aria-label="Search"
+        />
+        <button className="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </nav>
+  );
 }
-
-
-
-
-
