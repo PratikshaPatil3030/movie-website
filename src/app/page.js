@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Slider from "./component/Slide";
 
-const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+const apiUrl = 'https://imdb-top-100-movies.p.rapidapi.com/';
 const options = {
   method: 'GET',
   headers: {

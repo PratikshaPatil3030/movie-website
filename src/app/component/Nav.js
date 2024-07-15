@@ -12,8 +12,11 @@ export default function Nav() {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchTerm(input);
-    router.push(`/`);
-    router.push(`/movies`);
+    if (router.pathname === '/') {
+      router.push(`/`);
+    } else if (router.pathname === '/movies') {
+      router.push(`/movies`);
+    }
   };
 
   return (
