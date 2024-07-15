@@ -5,6 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import Slider from "./component/Slide";
 
+const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+const options = {
+  method: 'GET',
+  headers: {
+    'x-rapidapi-key': '94cc46bb18msh435c63fcdc6aacfp133217jsn83f7af80c1a2',
+    'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+  }
+};
+
+
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
@@ -12,16 +22,6 @@ export default function Home() {
 
   useEffect(() => {
     const fetchMovies = async () => {
-
-      const apiUrl = 'https://imdb-top-100-movies.p.rapidapi.com/';
-
-              const options = {
-                             method: 'GET',
-                            headers: {
-                                       'x-rapidapi-key': '94cc46bb18msh435c63fcdc6aacfp133217jsn83f7af80c1a2',
-                                         'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
-                                      }
-                             };
       const res = await fetch(apiUrl, options);
       if (!res.ok) {
         throw new Error(`Failed to fetch movies, status: ${res.status}`);

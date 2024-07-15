@@ -5,6 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 
+const apiUrl = 'https://imdb-top-100-movies.p.rapidapi.com/';
+const options = {
+  method: 'GET',
+  headers: {
+    'x-rapidapi-key': '94cc46bb18msh435c63fcdc6aacfp133217jsn83f7af80c1a2',
+    'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+  }
+};
 
 
 export default function Home2() {
