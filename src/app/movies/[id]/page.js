@@ -2,17 +2,18 @@ import Image from 'next/image';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay, faMedal, faRankingStar, faStar } from '@fortawesome/free-solid-svg-icons';
+
+
 async function fetchMovie(id) {
   
   const apiUrl = 'https://imdb-top-100-movies.p.rapidapi.com/';
-
-              const options = {
-                             method: 'GET',
-                            headers: {
-                                       'x-rapidapi-key': '94cc46bb18msh435c63fcdc6aacfp133217jsn83f7af80c1a2',
-                                         'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
-                                      }
-                             };
+const options = {
+  method: 'GET',
+  headers: {
+    'x-rapidapi-key': '18dc2733cbmsh39a8b7ec0ea270cp16b0a4jsnf5694bcbc710',
+    'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+  }
+};
   const res = await fetch(apiUrl, options);
   if (!res.ok) {
     throw new Error(`Failed to fetch movie, status: ${res.status}`);

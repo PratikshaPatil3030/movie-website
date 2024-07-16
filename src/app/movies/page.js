@@ -4,17 +4,6 @@ import { useSearch } from "../context/SearchContext";
 import Image from "next/image";
 import Link from "next/link";
 
-
-const apiUrl = 'https://imdb-top-100-movies.p.rapidapi.com/';
-const options = {
-  method: 'GET',
-  headers: {
-    'x-rapidapi-key': '94cc46bb18msh435c63fcdc6aacfp133217jsn83f7af80c1a2',
-    'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
-  }
-};
-
-
 export default function Home2() {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
@@ -23,14 +12,13 @@ export default function Home2() {
   useEffect(() => {
     const fetchMovies = async () => {
       const apiUrl = 'https://imdb-top-100-movies.p.rapidapi.com/';
-
       const options = {
-                     method: 'GET',
-                    headers: {
-                               'x-rapidapi-key': '94cc46bb18msh435c63fcdc6aacfp133217jsn83f7af80c1a2',
-                                 'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
-                              }
-                     };
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '18dc2733cbmsh39a8b7ec0ea270cp16b0a4jsnf5694bcbc710',
+          'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+        }
+      };
       const res = await fetch(apiUrl, options);
       if (!res.ok) {
         throw new Error(`Failed to fetch movies, status: ${res.status}`);
@@ -40,7 +28,11 @@ export default function Home2() {
 
       if (searchTerm) {
         const filtered = data.filter((movie) =>
-          movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+          movie.title.toLowerCase().includes(searchTerm.toLowerCase())||
+        movie.description.toLowerCase().includes(searchTerm.toLowerCase())||
+        movie.year.toString().includes(searchTerm)||
+        movie.rank.toString().includes(searchTerm)||
+        movie.rating.toString().includes(searchTerm)
         );
         setFilteredMovies(filtered);
       }
@@ -49,7 +41,7 @@ export default function Home2() {
   }, [searchTerm]);
 
   return (
-    <div className="my-3"><br/><br/><br/>
+    <div className="my-3"><br/><br/><br/><br/><br/>
       <h1 className="text-center fw-bold">All movies</h1>
       {searchTerm ? (
        <ul>
@@ -65,7 +57,8 @@ export default function Home2() {
                      <div className="card-body">
                              <h5 className="card-title">{movie.title.substring(0,14)}</h5>
                              <p className="card-text">{movie.description.substring(0,75)}</p>
-                          
+                             
+                            
                              <div className="d-grid gap-2">
                              <Link  href={`/movies/${movie.id}`} className="btn btn-secondary">View More</Link>
                               </div>

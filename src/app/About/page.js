@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function About() {
   return (
-    <div className="container"><br/><br/><br/><br/>
+    <div className="container"><br/><br/><br/><br/><br/><br/><br/>
       <h1>About Us</h1>
       <p>
         Welcome to MovieApp this is one of the best source for all movie reviews and ratings We are dedicated to providing you the very best of movie insights with an emphasis on accuracy reliability and up-to-date information

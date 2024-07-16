@@ -1,10 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { useRouter } from "next/navigation";
 import { useSearch } from "../context/SearchContext";
 import Image from "next/image";
 
 export default function Nav() {
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+
   const [input, setInput] = useState('');
   const router = useRouter();
   const { setSearchTerm } = useSearch();
