@@ -47,6 +47,7 @@ export default function Nav() {
           <li className="nav-item">
             <a className="nav-link" href="/About">AboutUs</a>
           </li>
+          
         </ul>
        
       </div>

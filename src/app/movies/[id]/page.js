@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -5,15 +6,14 @@ import { faCalendarDay, faMedal, faRankingStar, faStar } from '@fortawesome/free
 
 
 async function fetchMovie(id) {
-  
   const apiUrl = 'https://imdb-top-100-movies.p.rapidapi.com/';
-const options = {
-  method: 'GET',
-  headers: {
-    'x-rapidapi-key': '18dc2733cbmsh39a8b7ec0ea270cp16b0a4jsnf5694bcbc710',
-    'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
-  }
-};
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': 'd94f6afd6amsh3aa0f61b56071a8p1ba3dejsn43520723b102',
+      'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+    }
+  };
   const res = await fetch(apiUrl, options);
   if (!res.ok) {
     throw new Error(`Failed to fetch movie, status: ${res.status}`);
@@ -23,7 +23,7 @@ const options = {
   return movie;
 }
 
-export default async function moviepage({params}) {
+ export default async function moviepage({params}) {
   const movies = await fetchMovie(params.id);
   
   return (
@@ -83,5 +83,6 @@ export default async function moviepage({params}) {
   );
  
 }
+
 
 
